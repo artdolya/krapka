@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Repository.Abstractions", "Repository\KrapkaNet.Repository.Abstractions\KrapkaNet.Repository.Abstractions.csproj", "{E343E2B8-474E-4B6F-A416-B69CD3D832AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repository", "Repository", "{C26ACC37-E88C-4BF4-AF78-5E5042BC5214}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7E250D87-923E-49AD-A9E9-B164DA914C11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Data.Abstractions", "Data\KrapkaNet.Data.Abstractions\KrapkaNet.Data.Abstractions.csproj", "{70C359E6-0625-4348-8FD6-725BA028C352}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E343E2B8-474E-4B6F-A416-B69CD3D832AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E343E2B8-474E-4B6F-A416-B69CD3D832AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E343E2B8-474E-4B6F-A416-B69CD3D832AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E343E2B8-474E-4B6F-A416-B69CD3D832AE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70C359E6-0625-4348-8FD6-725BA028C352}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70C359E6-0625-4348-8FD6-725BA028C352}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70C359E6-0625-4348-8FD6-725BA028C352}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70C359E6-0625-4348-8FD6-725BA028C352}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E343E2B8-474E-4B6F-A416-B69CD3D832AE} = {C26ACC37-E88C-4BF4-AF78-5E5042BC5214}
+		{70C359E6-0625-4348-8FD6-725BA028C352} = {7E250D87-923E-49AD-A9E9-B164DA914C11}
+	EndGlobalSection
+EndGlobal

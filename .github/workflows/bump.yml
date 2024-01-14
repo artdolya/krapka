@@ -1,0 +1,28 @@
+name: Bump version using SemVer
+
+on:
+  push:
+    branches:
+      - "master"
+
+jobs:
+  build-dotnet:
+    uses: artdolya/actions/.github/workflows/dotnet.yml@master
+    with:
+      work-dir: ./src/Net
+      dotnet-version: 8.x
+
+  bump:
+    runs-on: ubuntu-latest
+    name: Bump version and push tag
+    needs: build-dotnet
+    permissions:
+      contents: write
+    steps:
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@v1
+        id: bump
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DEFAULT_BUMP: patch
+          WITH_V: false
