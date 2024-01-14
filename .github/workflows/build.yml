@@ -8,6 +8,7 @@ on:
 
 jobs:
   build-dotnet:
+    name: Build .NET core projects
     runs-on: ubuntu-latest
     steps:
       - name: Build .NET core projects

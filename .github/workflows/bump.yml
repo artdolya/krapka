@@ -7,6 +7,7 @@ on:
 
 jobs:
   build-dotnet:
+    name: Build and test .NET Core
     runs-on: ubuntu-latest
     permissions:
       contents: write
