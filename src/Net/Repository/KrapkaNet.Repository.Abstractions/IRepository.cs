@@ -6,15 +6,15 @@ public interface IRepository
 {
 }
 
-public interface IRepository<T, in TKey> : IRepositoryReader<T, TKey>, IRepositoryWriter<T>, IRepositoryRemover<T, TKey>
-    where T : class, IEntity<TKey>
+public interface IRepository<T, in TKey> :
+    IRepositoryReader<T, TKey>, IRepositoryWriter<T>, IRepositoryRemover<T, TKey>
+    where T : class, IEntity<TKey> where TKey : struct
 {
 }
 
 public interface IAsyncRepository<T, in TKey> :
-    IAsyncRepositoryReader<T, TKey>,
-    IAsyncRepositoryWriter<T>,
-    IAsyncRepositoryRemover<T, TKey>
+    IAsyncRepositoryReader<T, TKey>, IAsyncRepositoryWriter<T>, IAsyncRepositoryRemover<T, TKey>
     where T : class, IEntity<TKey>
+    where TKey : struct
 {
 }

@@ -1,10 +1,11 @@
-﻿namespace KrapkaNet.Data.Abstractions;
-
-public interface IEntity
+﻿namespace KrapkaNet.Data.Abstractions
 {
-}
+    public interface IEntity
+    {
+    }
 
-public interface IEntity<TKey> : IEntity
-{
-    TKey Id { get; set; }
+    public interface IEntity<TKey> : IEntity where TKey : struct
+    {
+        TKey Id { get; set; }
+    }
 }

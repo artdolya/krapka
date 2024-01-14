@@ -1,14 +1,17 @@
-﻿namespace KrapkaNet.Data.Abstractions;
+﻿using System;
 
-public class Entity<TId> : IEntity<TId>
+namespace KrapkaNet.Data.Abstractions
 {
-    public required TId Id { get; set; }
-}
+    public abstract class Entity<TId> : IEntity<TId> where TId : struct
+    {
+        public TId Id { get; set; }
+    }
 
-public class Entity : Entity<Guid>
-{
-}
+    public class Entity : Entity<Guid>
+    {
+    }
 
-public class ClassicEntity : Entity<int>
-{
+    public class ClassicEntity : Entity<int>
+    {
+    }
 }
