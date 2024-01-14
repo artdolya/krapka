@@ -8,7 +8,9 @@ on:
 
 jobs:
   build-dotnet:
-    uses: artdolya/actions/.github/workflows/dotnet.yml@master
-    with:
-      work-dir: ./src/Net
-      dotnet-version: 8.x
+    runs-on: ubuntu-latest
+    steps:
+      - uses: artdolya/actions/.github/actions/dotnet/build.yml@master
+        with:
+          work-dir: ./src/Net
+          dotnet-version: 8.x

@@ -7,13 +7,13 @@ on:
 
 jobs:
   build-dotnet:
-    uses: artdolya/actions/.github/workflows/dotnet.yml@master
-    with:
-      work-dir: ./src/Net
-      dotnet-version: 8.x
+    runs-on: ubuntu-latest
+    steps:
+      - uses: artdolya/actions/dotnet/build.yml@master
+        with:
+          work-dir: ./src/Net
+          dotnet-version: 8.x
 
-  bump:
-    uses: artdolya/actions/.github/workflows/bump.yml@master
-    permissions:
-      contents: write
-    secrets: inherit
+      - uses: artdolya/actions/bump.yml@master
+        with:
+          checkout: false
