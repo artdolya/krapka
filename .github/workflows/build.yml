@@ -8,4 +8,6 @@ on:
 
 jobs:
   build-dotnet:
-    uses: ./.github/actions/dotnet.yml
+    uses: ./.github/workflows/dotnet.yml
+    with:
+      work-dir: ./src/Net

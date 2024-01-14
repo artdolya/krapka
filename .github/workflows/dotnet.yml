@@ -3,9 +3,11 @@ name: Build .NET
 on:
   workflow_call:
     inputs:
-      sln-path:
-        description: 'Path to the solution/project file'
-        default: '.'
+      work-dir:
+        description: "Path to the solution/project file"
+        required: false
+        type: string
+        default: "."
 
 jobs:
   build-dotnet:
@@ -21,13 +23,13 @@ jobs:
           dotnet-version: 8.x
 
       - name: Install dependencies
-        working-directory: ./src/Net
+        working-directory: ${{ inputs.work-dir }}
         run: dotnet restore
 
       - name: Build
-        working-directory: ./src/Net
+        working-directory: ${{ inputs.work-dir }}
         run: dotnet build --configuration Release --no-restore
 
       - name: Test
-        working-directory: ./src/Net
+        working-directory: ${{ inputs.work-dir }}
         run: dotnet test --no-restore --verbosity normal
