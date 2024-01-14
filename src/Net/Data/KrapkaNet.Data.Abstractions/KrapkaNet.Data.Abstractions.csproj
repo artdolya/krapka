@@ -9,4 +9,8 @@
         <Company>Krapka</Company>
         <Authors>Artem Dolya</Authors>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="docs\README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 </Project>
