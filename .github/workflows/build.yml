@@ -10,7 +10,7 @@ jobs:
   build-dotnet:
     runs-on: ubuntu-latest
     steps:
-      - uses: artdolya/actions/dotnet/build@master
+      - uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net
           dotnet-version: 8.x

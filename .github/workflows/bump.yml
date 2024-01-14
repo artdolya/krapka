@@ -11,10 +11,11 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: artdolya/actions/dotnet/build@master
+      - uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net
           dotnet-version: 8.x
+          run-test: true
 
       - uses: artdolya/actions/bump@master
         with:
