@@ -10,7 +10,8 @@ jobs:
   build-dotnet:
     runs-on: ubuntu-latest
     steps:
-      - uses: artdolya/actions/dotnet@master
+      - name: Build .NET core projects
+        uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net
           dotnet-version: 8.x

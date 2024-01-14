@@ -11,7 +11,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: artdolya/actions/dotnet@master
+      - name: Build and test .NET Core
+        uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net
           dotnet-version: 8.x
