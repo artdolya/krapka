@@ -8,6 +8,6 @@ on:
 
 jobs:
   build-dotnet:
-    uses: ./.github/workflows/dotnet.yml
+    uses: artdolya/actions/dotnet/build.yml@master
     with:
       work-dir: ./src/Net
