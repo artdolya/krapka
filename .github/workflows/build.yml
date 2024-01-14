@@ -11,3 +11,4 @@ jobs:
     uses: artdolya/actions/dotnet/build.yml@master
     with:
       work-dir: ./src/Net
+      dotnet-version: 8.x
