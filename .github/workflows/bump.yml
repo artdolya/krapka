@@ -14,4 +14,6 @@ jobs:
 
   bump:
     uses: artdolya/actions/.github/workflows/bump.yml@master
+    permissions:
+      contents: write
     secrets: inherit
