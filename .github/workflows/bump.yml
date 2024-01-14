@@ -6,13 +6,13 @@ on:
       - "master"
 
 jobs:
-  build-dotnet:
-    name: Build and test .NET Core
+  validate-build:
+    name: Validate build
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Build and test .NET Core
+      - name: Build KrapkaNet
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net

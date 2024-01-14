@@ -7,8 +7,8 @@ on:
       - "!master"
 
 jobs:
-  build-dotnet:
-    name: Build .NET core projects
+  build:
+    name: Build All
     runs-on: ubuntu-latest
     steps:
       - name: Build .NET core projects

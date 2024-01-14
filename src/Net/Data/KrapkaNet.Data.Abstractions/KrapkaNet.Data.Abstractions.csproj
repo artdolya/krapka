@@ -12,4 +12,5 @@
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
 
+    <PackageReadmeFile>README.md</PackageReadmeFile>
 </Project>
