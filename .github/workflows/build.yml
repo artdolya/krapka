@@ -1,0 +1,11 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "*"
+      - "!master"
+
+jobs:
+  build-dotnet:
+    uses: ./.github/actions/dotnet.yml
