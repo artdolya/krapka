@@ -11,4 +11,8 @@
     <ItemGroup>
         <None Include="..\..\..\..\docs\README.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Data\KrapkaNet.Data.Abstractions\KrapkaNet.Data.Abstractions.csproj" />
+    </ItemGroup>
 </Project>

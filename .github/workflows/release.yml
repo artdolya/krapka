@@ -8,10 +8,30 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish
     steps:
-      - name: Publish to Nuget
+      - name: Publish Data Abstractions
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/Data/KrapkaNet.Data.Abstractions
           dotnet-version: 8.x
-          publish-nuget: true
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish Reposotories
+        uses: artdolya/actions/dotnet@master
+        with:
+          work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.Abstractions
+          dotnet-version: 8.x
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish Data EntityFramework
+        uses: artdolya/actions/dotnet@master
+        with:
+          work-dir: ./src/Net/Repositories/KrapkaNet.Data.EntityFramework
+          dotnet-version: 8.x
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish Web Infrastructure
+        uses: artdolya/actions/dotnet@master
+        with:
+          work-dir: ./src/Net/Web/KrapkaNet.Web.Infrastructure
+          dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
