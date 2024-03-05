@@ -13,6 +13,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Data\KrapkaNet.Data.Abstractions\KrapkaNet.Data.Abstractions.csproj" />
+      <PackageReference Include="KrapkaNet.Data.Abstractions" Version="0.0.14" />
     </ItemGroup>
 </Project>
