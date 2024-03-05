@@ -13,6 +13,7 @@ jobs:
         with:
           work-dir: ./src/Net/Data/KrapkaNet.Data.Abstractions
           dotnet-version: 8.x
+          publish-nuget: true
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
       - name: Publish Reposotories
@@ -20,6 +21,7 @@ jobs:
         with:
           work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.Abstractions
           dotnet-version: 8.x
+          publish-nuget: true
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
       - name: Publish Data EntityFramework
@@ -27,6 +29,7 @@ jobs:
         with:
           work-dir: ./src/Net/Repositories/KrapkaNet.Data.EntityFramework
           dotnet-version: 8.x
+          publish-nuget: true
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
       - name: Publish Web Infrastructure
@@ -34,4 +37,5 @@ jobs:
         with:
           work-dir: ./src/Net/Web/KrapkaNet.Web.Infrastructure
           dotnet-version: 8.x
+          publish-nuget: true
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}

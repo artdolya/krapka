@@ -11,8 +11,9 @@ jobs:
     name: Build All
     runs-on: ubuntu-latest
     steps:
-      - name: Build .NET core projects
+      - name: Build KrapkaNet
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net
           dotnet-version: 8.x
+          run-tests: true
