@@ -25,7 +25,7 @@ jobs:
       - name: Publish Data EntityFramework
         uses: artdolya/actions/dotnet@master
         with:
-          work-dir: ./src/Net/Repositories/KrapkaNet.Data.EntityFramework
+          work-dir: ./src/Net/Data/KrapkaNet.Data.EntityFramework
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
