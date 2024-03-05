@@ -15,10 +15,24 @@ jobs:
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish Reposotories
+      - name: Publish Data EntityFramework
+        uses: artdolya/actions/dotnet@master
+        with:
+          work-dir: ./src/Net/Data/KrapkaNet.Data.EntityFramework
+          dotnet-version: 8.x
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish Reposotories Abstractions
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.Abstractions
+          dotnet-version: 8.x
+          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish Reposotories EntityFramework
+        uses: artdolya/actions/dotnet@master
+        with:
+          work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.EntityFramework
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
