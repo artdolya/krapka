@@ -36,13 +36,6 @@ jobs:
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish Data EntityFramework
-        uses: artdolya/actions/dotnet@master
-        with:
-          work-dir: ./src/Net/Data/KrapkaNet.Data.EntityFramework
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
-
       - name: Publish Web Infrastructure
         uses: artdolya/actions/dotnet@master
         with:
