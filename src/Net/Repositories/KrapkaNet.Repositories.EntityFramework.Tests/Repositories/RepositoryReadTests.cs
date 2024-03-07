@@ -1,5 +1,6 @@
 using FluentAssertions;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Entities;
+using KrapkaNet.Repositories.EntityFramework.Tests.Data.Models;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Repositories;
 
 namespace KrapkaNet.Repositories.EntityFramework.Tests.Repositories;
@@ -57,7 +58,6 @@ public class RepositoryReadTests : EntityFrameworkBaseTest
         dbContext.Users.Add(user);
         dbContext.SaveChanges();
         var testUserRepository = new UserTestRepository(dbContext);
-        
 
         // Act
         var result = testUserRepository.GetBy(u => u.Username == user.Username);

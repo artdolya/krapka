@@ -4,7 +4,7 @@ using KrapkaNet.Repositories.EntityFramework.Tests.Data.Repositories;
 
 namespace KrapkaNet.Repositories.EntityFramework.Tests.Repositories;
 
-public class EntityFrameworkRepositoryRemoverTests : EntityFrameworkBaseTest
+public class RepositoryRemoverTests : EntityFrameworkBaseTest
 {
     [Fact]
     public void UserRepository_Remove_User_By_Entity()

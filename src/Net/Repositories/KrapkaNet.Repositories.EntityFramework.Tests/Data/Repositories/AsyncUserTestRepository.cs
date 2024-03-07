@@ -2,9 +2,9 @@
 
 namespace KrapkaNet.Repositories.EntityFramework.Tests.Data.Repositories;
 
-public class UserTestRepository(TestDbContext dbContext) : Repository<User, Guid>(dbContext)
+public class AsyncUserTestRepository(TestDbContext dbContext) : AsyncRepository<User, Guid>(dbContext)
 {
-    public IEnumerable<User> GetActiveUsers()
+    public IEnumerable<User> GetActiveUsersAsync()
     {
         return DbSet.Where(x => x.IsActive);
     }
