@@ -1,4 +1,4 @@
-﻿using KarpkaNet.EntityFramework.Abstractions;
+﻿using KrapkaNet.EntityFramework.Abstractions;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 

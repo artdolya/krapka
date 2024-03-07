@@ -24,7 +24,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Web.Infrastructur
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{EED50592-D3BF-4A84-BF4B-862BAAD21E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarpkaNet.EntityFramework.Abstractions", "EntityFramework\KarpkaNet.EntityFramework.Abstractions\KarpkaNet.EntityFramework.Abstractions.csproj", "{FF85C108-9C46-4CB9-BB19-6F85C7B94980}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.EntityFramework.Abstractions", "EntityFramework\KrapkaNet.EntityFramework.Abstractions\KrapkaNet.EntityFramework.Abstractions.csproj", "{FF85C108-9C46-4CB9-BB19-6F85C7B94980}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.EntityFramework.Abstraction.Tests", "EntityFramework\KrapkaNet.EntityFramework.Abstraction.Tests\KrapkaNet.EntityFramework.Abstraction.Tests.csproj", "{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}"
 EndProject

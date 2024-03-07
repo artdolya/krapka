@@ -7,11 +7,11 @@ namespace KrapkaNet.Data.Abstractions
         public TId Id { get; set; }
     }
 
-    public class Entity : Entity<Guid>
+    public abstract class Entity : Entity<Guid>
     {
     }
 
-    public class ClassicEntity : Entity<int>
+    public abstract class ClassicEntity : Entity<int>
     {
     }
 }
