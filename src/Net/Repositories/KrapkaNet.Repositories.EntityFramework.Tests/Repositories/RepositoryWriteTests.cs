@@ -1,4 +1,5 @@
 using FluentAssertions;
+using KrapkaNet.Repositories.Abstractions;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Entities;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Repositories;
 
@@ -29,6 +30,29 @@ public class RepositoryWriteTests : EntityFrameworkBaseTest
         result.Where(u => u.Id == Guid.Empty).Select(u => u.Id).Count().Should().Be(0);
     }
 
+    [Fact]
+    public async Task UserRepository_AddAsync_User()
+    {
+        // Arrange
+        var dbContext = CreateDbContext();
+        var testUserRepository = new UserTestRepository(dbContext);
+        var user = new User
+        {
+            Username = "test",
+            Password = "password",
+            Email = "email"
+        };
+
+        // Act
+        await testUserRepository.AddAsync(user); 
+        await testUserRepository.SaveAsync();  
+        var result = dbContext.Users.Where(u => u.Username == "test");
+        
+        // Assert
+        result.Count().Should().Be(1);
+        result.Where(u => u.Id == Guid.Empty).Select(u => u.Id).Count().Should().Be(0);
+    }
+    
     [Fact]
     public void UserRepository_Update_User()
     {

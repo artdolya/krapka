@@ -1,4 +1,5 @@
-﻿using KrapkaNet.Data.Abstractions;
+﻿using System.Threading.Tasks;
+using KrapkaNet.Data.Abstractions;
 
 namespace KrapkaNet.Repositories.Abstractions
 {
@@ -11,5 +12,7 @@ namespace KrapkaNet.Repositories.Abstractions
         where T : class, IEntity<TKey> where TKey : struct
     {
         bool Save();
+        
+        Task<bool> SaveAsync();
     }
 }

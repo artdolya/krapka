@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -23,6 +22,38 @@ namespace KrapkaNet.Repositories.EntityFramework
 
         protected DbSet<T> DbSet { get; }
   
+        public T FindBy(TKey id)
+        {
+            return DbSet.Find(id);
+        }
+        
+        public T GetBy(TKey id)
+        {
+            return DbSet.FirstOrDefault(x => x.Id.Equals(id));
+        }
+
+        public async Task<T> GetByAsync(TKey id)
+        {
+            return await DbSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
+        }
+
+        public IQueryable<T> GetBy(Expression<Func<T, bool>> filter)
+        {
+            return DbSet.Where(filter);
+        }
+
+        public bool Save()
+        {
+            _context.SaveChanges();
+            return true;
+        }
+
+        public async Task<bool> SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+            return true;
+        }
+
         public T AddOrUpdate(T entity)
         {
             if (entity.Id.Equals(default(TKey)))
@@ -31,7 +62,13 @@ namespace KrapkaNet.Repositories.EntityFramework
                 DbSet.Update(entity);
             return entity;
         }
-
+        
+        public async Task<T> AddAsync(T entity)
+        {
+            await DbSet.AddAsync(entity);
+            return entity;
+        }
+        
         public void Remove(TKey id)
         {
             var entity = DbSet.Find(id);
@@ -46,20 +83,5 @@ namespace KrapkaNet.Repositories.EntityFramework
             DbSet.Remove(entity);
         }
 
-        public T GetBy(TKey id)
-        {
-            return DbSet.Find(id)!;
-        }
-
-        public IEnumerable<T> GetBy(Expression<Func<T, bool>> filter)
-        {
-            return DbSet.Where(filter);
-        }
-
-        public bool Save()
-        {
-            _context.SaveChanges();
-            return true;
-        }
     }
 }

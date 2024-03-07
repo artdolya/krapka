@@ -1,6 +1,5 @@
 using FluentAssertions;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Entities;
-using KrapkaNet.Repositories.EntityFramework.Tests.Data.Models;
 using KrapkaNet.Repositories.EntityFramework.Tests.Data.Repositories;
 
 namespace KrapkaNet.Repositories.EntityFramework.Tests.Repositories;
@@ -25,6 +24,28 @@ public class RepositoryReadTests : EntityFrameworkBaseTest
 
         // Act
         var result = testRepository.GetBy(user.Id);
+        
+        // Assert
+        result.Should().NotBeNull();
+    }
+    
+    [Fact]
+    public async Task UserRepository_GetByAsync_Id_Return_User()
+    {
+        // Arrange
+        var dbContext = CreateDbContext();
+        var user = new User
+        {
+            Username = $"test-{Guid.NewGuid()}",
+            Password = "password",
+            Email = "email"
+        };
+        dbContext.Users.Add(user);
+        await dbContext.SaveChangesAsync();
+        var testRepository = new UserTestRepository(dbContext);    
+
+        // Act
+        var result = await testRepository.GetByAsync(user.Id);
         
         // Assert
         result.Should().NotBeNull();
