@@ -28,6 +28,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.EntityFramework.A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.EntityFramework.Abstraction.Tests", "EntityFramework\KrapkaNet.EntityFramework.Abstraction.Tests\KrapkaNet.EntityFramework.Abstraction.Tests.csproj", "{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DependencyInjection", "DependencyInjection", "{A901309B-820C-41C4-A955-06F60DC49CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.DependencyInjection.Postgres", "DependencyInjection\KrapkaNet.DependencyInjection.Postgres\KrapkaNet.DependencyInjection.Postgres.csproj", "{65F68408-9196-4AFC-AFD9-1ECE67F79690}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,6 +69,10 @@ Global
 		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F68408-9196-4AFC-AFD9-1ECE67F79690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F68408-9196-4AFC-AFD9-1ECE67F79690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F68408-9196-4AFC-AFD9-1ECE67F79690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F68408-9196-4AFC-AFD9-1ECE67F79690}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{70C359E6-0625-4348-8FD6-725BA028C352} = {7E250D87-923E-49AD-A9E9-B164DA914C11}
@@ -74,5 +82,6 @@ Global
 		{D10B4700-A3DB-4C7A-A9BF-C911658D6675} = {7955997D-0AB5-45FF-8458-734A6F3CF97D}
 		{FF85C108-9C46-4CB9-BB19-6F85C7B94980} = {EED50592-D3BF-4A84-BF4B-862BAAD21E91}
 		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B} = {EED50592-D3BF-4A84-BF4B-862BAAD21E91}
+		{65F68408-9196-4AFC-AFD9-1ECE67F79690} = {A901309B-820C-41C4-A955-06F60DC49CA2}
 	EndGlobalSection
 EndGlobal

@@ -8,37 +8,44 @@ jobs:
     runs-on: ubuntu-latest
     name: Publish
     steps:
-      - name: Publish Data Abstractions
+      # - name: Publish Data Abstractions
+      #   uses: artdolya/actions/dotnet@master
+      #   with:
+      #     work-dir: ./src/Net/Data/KrapkaNet.Data.Abstractions
+      #     dotnet-version: 8.x
+      #     nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      # - name: Publish EntityFramework Abstractions
+      #   uses: artdolya/actions/dotnet@master
+      #   with:
+      #     work-dir: ./src/Net/EntityFramework/KrapkaNet.EntityFramework.Abstractions
+      #     dotnet-version: 8.x
+      #     nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+
+      - name: Publish Dependency Injection Postgres
         uses: artdolya/actions/dotnet@master
         with:
-          work-dir: ./src/Net/Data/KrapkaNet.Data.Abstractions
+          work-dir: ./src/Net/DependencyInjection/KrapkaNet.DependencyInjection.Postgres
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish EntityFramework Abstractions
-        uses: artdolya/actions/dotnet@master
-        with:
-          work-dir: ./src/Net/EntityFramework/KrapkaNet.EntityFramework.Abstractions
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+      # - name: Publish Reposotories Abstractions
+      #   uses: artdolya/actions/dotnet@master
+      #   with:
+      #     work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.Abstractions
+      #     dotnet-version: 8.x
+      #     nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish Reposotories Abstractions
-        uses: artdolya/actions/dotnet@master
-        with:
-          work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.Abstractions
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+      # - name: Publish Reposotories EntityFramework
+      #   uses: artdolya/actions/dotnet@master
+      #   with:
+      #     work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.EntityFramework
+      #     dotnet-version: 8.x
+      #     nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish Reposotories EntityFramework
-        uses: artdolya/actions/dotnet@master
-        with:
-          work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.EntityFramework
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
-
-      - name: Publish Web Infrastructure
-        uses: artdolya/actions/dotnet@master
-        with:
-          work-dir: ./src/Net/Web/KrapkaNet.Web.Infrastructure
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+      # - name: Publish Web Infrastructure
+      #   uses: artdolya/actions/dotnet@master
+      #   with:
+      #     work-dir: ./src/Net/Web/KrapkaNet.Web.Infrastructure
+      #     dotnet-version: 8.x
+      #     nuget-api-key: ${{ secrets.NUGET_API_KEY }}
