@@ -1,7 +1,8 @@
-﻿using KrapkaNet.Data.Abstractions;
+﻿using KarpkaNet.EntityFramework.Abstractions;
+using KrapkaNet.Data.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace KrapkaNet.Data.EntityFramework.Tests
+namespace KrapkaNet.EntityFramework.Abstraction.Tests
 {
     public class TestDbContext(DbContextOptions options) : ApplicationDbContext(options)
     {

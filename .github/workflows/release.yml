@@ -15,10 +15,10 @@ jobs:
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish Data EntityFramework
+      - name: Publish EntityFramework Abstractions
         uses: artdolya/actions/dotnet@master
         with:
-          work-dir: ./src/Net/Data/KrapkaNet.Data.EntityFramework
+          work-dir: ./src/Net/Data/KrapkaNet.EntityFramework.Abstractions
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 

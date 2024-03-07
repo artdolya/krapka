@@ -2,7 +2,7 @@
 using KrapkaNet.Data.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace KrapkaNet.Data.EntityFramework
+namespace KarpkaNet.EntityFramework.Abstractions
 {
     public abstract class ApplicationDbContext : DbContext
     {

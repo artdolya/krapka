@@ -1,9 +1,8 @@
 using FluentAssertions;
-using KrapkaNet.Data.EntityFramework;
-using KrapkaNet.Data.EntityFramework.Tests;
+using KarpkaNet.EntityFramework.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace KrapkaNet.DaTA.EntityFramework.Tests;
+namespace KrapkaNet.EntityFramework.Abstraction.Tests;
 
 public class ApplicationDbContextTests
 {

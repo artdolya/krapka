@@ -1,5 +1,5 @@
-﻿using KrapkaNet.Repositories.EntityFramework.Tests.Data.Entities;
-using KrapkaNet.Data.EntityFramework;
+﻿using KarpkaNet.EntityFramework.Abstractions;
+using KrapkaNet.Repositories.EntityFramework.Tests.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace KrapkaNet.Repositories.EntityFramework.Tests.Data;

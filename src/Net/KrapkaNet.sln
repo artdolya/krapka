@@ -14,14 +14,19 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Repositories.EntityFramework.Tests", "Repositories\KrapkaNet.Repositories.EntityFramework.Tests\KrapkaNet.Repositories.EntityFramework.Tests.csproj", "{9D8F013E-D0DD-4F7C-AF87-8FB16A0ED097}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{BF8CA0F6-06D8-4A42-8F87-4AA9F68D61F2}"
+	ProjectSection(SolutionItems) = preProject
+		Repositories\README.md = Repositories\README.md
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{7955997D-0AB5-45FF-8458-734A6F3CF97D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Web.Infrastructure", "Web\KrapkaNet.Web.Infrastructure\KrapkaNet.Web.Infrastructure.csproj", "{D10B4700-A3DB-4C7A-A9BF-C911658D6675}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Data.EntityFramework", "Data\KrapkaNet.Data.EntityFramework\KrapkaNet.Data.EntityFramework.csproj", "{0F7B0ACC-781B-45E5-A749-B8C71A3099A1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{EED50592-D3BF-4A84-BF4B-862BAAD21E91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Data.EntityFramework.Tests", "Data\KrapkaNet.Data.EntityFramework.Tests\KrapkaNet.Data.EntityFramework.Tests.csproj", "{05CD73A4-BE53-4326-82D1-A9C5B5CBFE4E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KarpkaNet.EntityFramework.Abstractions", "EntityFramework\KarpkaNet.EntityFramework.Abstractions\KarpkaNet.EntityFramework.Abstractions.csproj", "{FF85C108-9C46-4CB9-BB19-6F85C7B94980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.EntityFramework.Abstraction.Tests", "EntityFramework\KrapkaNet.EntityFramework.Abstraction.Tests\KrapkaNet.EntityFramework.Abstraction.Tests.csproj", "{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -52,14 +57,14 @@ Global
 		{D10B4700-A3DB-4C7A-A9BF-C911658D6675}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D10B4700-A3DB-4C7A-A9BF-C911658D6675}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D10B4700-A3DB-4C7A-A9BF-C911658D6675}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F7B0ACC-781B-45E5-A749-B8C71A3099A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F7B0ACC-781B-45E5-A749-B8C71A3099A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F7B0ACC-781B-45E5-A749-B8C71A3099A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F7B0ACC-781B-45E5-A749-B8C71A3099A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05CD73A4-BE53-4326-82D1-A9C5B5CBFE4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05CD73A4-BE53-4326-82D1-A9C5B5CBFE4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05CD73A4-BE53-4326-82D1-A9C5B5CBFE4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05CD73A4-BE53-4326-82D1-A9C5B5CBFE4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF85C108-9C46-4CB9-BB19-6F85C7B94980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF85C108-9C46-4CB9-BB19-6F85C7B94980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF85C108-9C46-4CB9-BB19-6F85C7B94980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF85C108-9C46-4CB9-BB19-6F85C7B94980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{70C359E6-0625-4348-8FD6-725BA028C352} = {7E250D87-923E-49AD-A9E9-B164DA914C11}
@@ -67,7 +72,7 @@ Global
 		{7E372905-A2B3-4808-9B7E-F884EA646930} = {BF8CA0F6-06D8-4A42-8F87-4AA9F68D61F2}
 		{9D8F013E-D0DD-4F7C-AF87-8FB16A0ED097} = {BF8CA0F6-06D8-4A42-8F87-4AA9F68D61F2}
 		{D10B4700-A3DB-4C7A-A9BF-C911658D6675} = {7955997D-0AB5-45FF-8458-734A6F3CF97D}
-		{0F7B0ACC-781B-45E5-A749-B8C71A3099A1} = {7E250D87-923E-49AD-A9E9-B164DA914C11}
-		{05CD73A4-BE53-4326-82D1-A9C5B5CBFE4E} = {7E250D87-923E-49AD-A9E9-B164DA914C11}
+		{FF85C108-9C46-4CB9-BB19-6F85C7B94980} = {EED50592-D3BF-4A84-BF4B-862BAAD21E91}
+		{5BB96CCC-2C1A-4609-AF91-6DC6C2F65D4B} = {EED50592-D3BF-4A84-BF4B-862BAAD21E91}
 	EndGlobalSection
 EndGlobal

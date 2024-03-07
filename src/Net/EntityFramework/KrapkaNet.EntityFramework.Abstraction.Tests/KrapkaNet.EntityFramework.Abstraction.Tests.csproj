@@ -26,7 +26,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\KrapkaNet.Data.EntityFramework\KrapkaNet.Data.EntityFramework.csproj" />
+      <ProjectReference Include="..\KarpkaNet.EntityFramework.Abstractions\KarpkaNet.EntityFramework.Abstractions.csproj" />
     </ItemGroup>
 
 </Project>
