@@ -14,9 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KrapkaNet.Repositories.EntityFramework.Tests", "Repositories\KrapkaNet.Repositories.EntityFramework.Tests\KrapkaNet.Repositories.EntityFramework.Tests.csproj", "{9D8F013E-D0DD-4F7C-AF87-8FB16A0ED097}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Repositories", "Repositories", "{BF8CA0F6-06D8-4A42-8F87-4AA9F68D61F2}"
-	ProjectSection(SolutionItems) = preProject
-		Repositories\README.md = Repositories\README.md
-	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{7955997D-0AB5-45FF-8458-734A6F3CF97D}"
 EndProject
