@@ -1,6 +1,9 @@
+using KrapkaNet.Extensions.Hosting.Logging;
 using KrapkaNet.Web.Infrastructure.Controllers;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.AddLogging();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
