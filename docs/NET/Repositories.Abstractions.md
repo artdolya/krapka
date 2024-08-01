@@ -7,10 +7,6 @@ Repository Pattern is a design pattern that mediates between the domain and data
 - IRepositoryRemover<in T, in TKey> - Is a remove-only interface for accessing your data.
 - IRepository<T, in TKey> - Is a read-write interface for accessing your data.
 
-##### IRepositoryRemover
-
-Is a remove-only interface for accessing your data.
-
 ## Getting started
 
 ### Prerequisites
