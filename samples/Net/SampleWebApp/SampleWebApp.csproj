@@ -18,7 +18,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Web\KrapkaNet.Web.Infrastructure\KrapkaNet.Web.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\..\src\Net\Extensions\KrapkaNet.Extensions.Hosting.Logging\KrapkaNet.Extensions.Hosting.Logging.csproj" />
+      <ProjectReference Include="..\..\..\src\Net\Web\KrapkaNet.Web.Infrastructure\KrapkaNet.Web.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>

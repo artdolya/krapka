@@ -1,9 +1,10 @@
 ﻿using KrapkaNet.EntityFramework.Abstractions;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace KrapkaNet.DependencyInjection.Postgres
+namespace KrapkaNet.Extensions.Hosting.Postgres
 {
     public static class ServiceCollectionExtensions
     {

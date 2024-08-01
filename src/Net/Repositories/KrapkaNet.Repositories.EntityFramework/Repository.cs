@@ -21,12 +21,12 @@ namespace KrapkaNet.Repositories.EntityFramework
         private readonly DbContext _context;
 
         protected DbSet<T> DbSet { get; }
-  
+
         public T FindBy(TKey id)
         {
             return DbSet.Find(id);
         }
-        
+
         public T GetBy(TKey id)
         {
             return DbSet.FirstOrDefault(x => x.Id.Equals(id));
@@ -62,13 +62,13 @@ namespace KrapkaNet.Repositories.EntityFramework
                 DbSet.Update(entity);
             return entity;
         }
-        
+
         public async Task<T> AddAsync(T entity)
         {
             await DbSet.AddAsync(entity);
             return entity;
         }
-        
+
         public void Remove(TKey id)
         {
             var entity = DbSet.Find(id);
@@ -82,6 +82,5 @@ namespace KrapkaNet.Repositories.EntityFramework
         {
             DbSet.Remove(entity);
         }
-
     }
 }
