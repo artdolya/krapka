@@ -53,7 +53,7 @@ Configure _appsetting.json_
 Reference the package in your code:
 
 ```csharp
-using KrapkaNet.Extensions.Hosting Logging;
+using KrapkaNet.Extensions.Hosting.Logging;
 ```
 
 Use AddLogging to add logs to your application.
