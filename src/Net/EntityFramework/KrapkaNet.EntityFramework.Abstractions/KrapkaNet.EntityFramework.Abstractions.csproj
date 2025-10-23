@@ -13,47 +13,12 @@
         <None Include="..\..\..\..\docs\NET\EntityFramework.Abstractions.md" Pack="true" PackagePath="\"/>
     </ItemGroup>
 
-    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="2.2.6" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.0'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.3" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.0.3" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="3.1.32" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net5.0'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.17" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.27" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="6.0.27" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.16" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="7.0.16" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.21" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.21" />
-    </ItemGroup>
-
-    <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.10" />
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
     </ItemGroup>
   
     <ItemGroup>
-        <PackageReference Include="KrapkaNet.Data.Abstractions" Version="0.0.25" />
+        <PackageReference Include="KrapkaNet.Data.Abstractions" />
     </ItemGroup>
 </Project>

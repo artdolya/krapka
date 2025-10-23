@@ -22,13 +22,6 @@ jobs:
           dotnet-version: 8.x
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
 
-      - name: Publish Extensions Hosting Logging
-        uses: artdolya/actions/dotnet@master
-        with:
-          work-dir: ./src/Net/Extensions/KrapkaNet.Extensions.Hosting.Logging
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
-
       - name: Publish Extensions Hosting Postgres
         uses: artdolya/actions/dotnet@master
         with:

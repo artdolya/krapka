@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <Company>Krapka</Company>
+    <Authors>Artem Dolya</Authors>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+</Project>
