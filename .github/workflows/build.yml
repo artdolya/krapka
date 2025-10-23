@@ -15,5 +15,5 @@ jobs:
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net
-          dotnet-version: 8.x
+          dotnet-version: 9.x
           run-tests: true

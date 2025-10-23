@@ -7,48 +7,45 @@ jobs:
   build-dotnet:
     runs-on: ubuntu-latest
     name: Publish
+    env: 
+      NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
     steps:
       - name: Publish Data Abstractions
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/Data/KrapkaNet.Data.Abstractions
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          dotnet-version: 9.x
 
       - name: Publish EntityFramework Abstractions
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/EntityFramework/KrapkaNet.EntityFramework.Abstractions
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          dotnet-version: 9.x
 
       - name: Publish Extensions Hosting Postgres
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/Extensions/KrapkaNet.Extensions.Hosting.Postgres
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          dotnet-version: 9.x
 
       - name: Publish Extensions Logging
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/Extensions/KrapkaNet.Extensions.Logging
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          dotnet-version: 9.x
 
       - name: Publish Reposotories Abstractions
         uses: artdolya/actions/dotnet@master
         with:
           work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.Abstractions
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          dotnet-version: 9.x
 
       - name: Publish Reposotories EntityFramework
         uses: artdolya/actions/dotnet@master
+        
         with:
           work-dir: ./src/Net/Repositories/KrapkaNet.Repositories.EntityFramework
-          dotnet-version: 8.x
-          nuget-api-key: ${{ secrets.NUGET_API_KEY }}
+          dotnet-version: 9.x
 
       # - name: Publish Web Infrastructure
       #   uses: artdolya/actions/dotnet@master
