@@ -89,8 +89,8 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
     <PackageVersion Include="FluentAssertions" Version="8.8.0" />
-    <PackageVersion Include="KrapkaNet.Data.Abstractions" Version="0.0.29" />
-    <PackageVersion Include="KrapkaNet.EntityFramework.Abstractions" Version="0.0.29" />
+    <PackageVersion Include="KrapkaNet.Data.Abstractions" Version="0.0.25" />
+    <PackageVersion Include="KrapkaNet.EntityFramework.Abstractions" Version="0.0.25" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
     <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />
