@@ -1,5 +1,6 @@
-﻿using System.Threading.Tasks;
-using KrapkaNet.Data.Abstractions;
+﻿using KrapkaNet.Data.Abstractions;
+using System;
+using System.Threading.Tasks;
 
 namespace KrapkaNet.Repositories.Abstractions
 {
@@ -12,7 +13,19 @@ namespace KrapkaNet.Repositories.Abstractions
         where T : class, IEntity<TKey> where TKey : struct
     {
         bool Save();
-        
+
         Task<bool> SaveAsync();
+    }
+
+    public interface IRepository<T> :
+       IRepository<T, Guid>
+       where T : class, IEntity<Guid>
+    {
+    }
+
+    public interface IClassicRepository<T> :
+       IRepository<T, Guid>
+       where T : class, IEntity<Guid>
+    {
     }
 }

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using KrapkaNet.Data.Abstractions;
+using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using KrapkaNet.Data.Abstractions;
 
 namespace KrapkaNet.Repositories.Abstractions
 {
@@ -16,14 +15,14 @@ namespace KrapkaNet.Repositories.Abstractions
         /// <param name="id">Primary Key</param>
         /// <returns>Entity</returns>
         T FindBy(TKey id);
-        
+
         /// <summary>
         /// Find an entity by its id. If not found, return null
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Entity or Null</returns>
         T GetBy(TKey id);
-        
+
         /// <summary>
         /// Find an entity by its id. If not found, return null
         /// </summary>
@@ -37,5 +36,15 @@ namespace KrapkaNet.Repositories.Abstractions
         /// <param name="filter">Filter expression</param>
         /// <returns>IQueryable collection of Entities.</returns>
         IQueryable<T> GetBy(Expression<Func<T, bool>> filter);
+    }
+
+    public interface IRepositoryReader<T> : IRepositoryReader<T, Guid>
+    where T : class, IEntity<Guid>
+    {
+    }
+
+    public interface IClassicRepositoryReader<T> : IRepositoryReader<T, int>
+    where T : class, IEntity<int>
+    {
     }
 }
