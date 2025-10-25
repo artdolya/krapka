@@ -6,26 +6,25 @@ namespace KrapkaNet.Repositories.Abstractions
 {
     public interface IRepository
     {
-    }
-
-    public interface IRepository<T, in TKey> :
-        IRepositoryReader<T, TKey>, IRepositoryWriter<T>, IRepositoryRemover<T, TKey>
-        where T : class, IEntity<TKey> where TKey : struct
-    {
         bool Save();
-
         Task<bool> SaveAsync();
     }
 
-    public interface IRepository<T> :
-       IRepository<T, Guid>
-       where T : class, IEntity<Guid>
+    public interface IRepository<TEntity, in TKey> :
+        IRepository, IRepositoryReader<TEntity, TKey>, IRepositoryWriter<TEntity>, IRepositoryRemover<TEntity, TKey>
+        where TEntity : class, IEntity<TKey>
+        where TKey : struct
+    {
+
+    }
+
+    public interface IRepository<TEntity> : IRepository<TEntity, Guid>
+       where TEntity : class, IEntity<Guid>
     {
     }
 
-    public interface IClassicRepository<T> :
-       IRepository<T, Guid>
-       where T : class, IEntity<Guid>
+    public interface IClassicRepository<TEntity> : IRepository<TEntity, int>
+       where TEntity : class, IEntity<int>
     {
     }
 }

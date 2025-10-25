@@ -1,43 +1,41 @@
-﻿using System;
+﻿using KrapkaNet.Data.Abstractions;
+using KrapkaNet.Repositories.Abstractions;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
-using KrapkaNet.Data.Abstractions;
-using KrapkaNet.Repositories.Abstractions;
-using Microsoft.EntityFrameworkCore;
 
 namespace KrapkaNet.Repositories.EntityFramework
 {
-    public class Repository<T, TKey> : IRepository<T, TKey>
-        where T : class, IEntity<TKey>
+    public abstract class Repository<TEntity, TKey> : IRepository<TEntity, TKey>
+        where TEntity : class, IEntity<TKey>
         where TKey : struct
     {
         protected Repository(DbContext context)
         {
             _context = context;
-            DbSet = _context.Set<T>();
         }
 
         private readonly DbContext _context;
+        protected DbSet<TEntity> DbSet => _context.Set<TEntity>();
 
-        protected DbSet<T> DbSet { get; }
-
-        public T FindBy(TKey id)
+        public TEntity FindBy(TKey id)
         {
             return DbSet.Find(id);
         }
 
-        public T GetBy(TKey id)
+        public TEntity GetBy(TKey id)
         {
             return DbSet.FirstOrDefault(x => x.Id.Equals(id));
         }
 
-        public async Task<T> GetByAsync(TKey id)
+        public async Task<TEntity> GetByAsync(TKey id)
         {
             return await DbSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
-        public IQueryable<T> GetBy(Expression<Func<T, bool>> filter)
+        public IQueryable<TEntity> GetBy(Expression<Func<TEntity, bool>> filter)
         {
             return DbSet.Where(filter);
         }
@@ -54,7 +52,7 @@ namespace KrapkaNet.Repositories.EntityFramework
             return true;
         }
 
-        public T AddOrUpdate(T entity)
+        public TEntity AddOrUpdate(TEntity entity)
         {
             if (entity.Id.Equals(default(TKey)))
                 DbSet.Add(entity);
@@ -63,7 +61,7 @@ namespace KrapkaNet.Repositories.EntityFramework
             return entity;
         }
 
-        public async Task<T> AddAsync(T entity)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
             await DbSet.AddAsync(entity);
             return entity;
@@ -78,9 +76,27 @@ namespace KrapkaNet.Repositories.EntityFramework
             }
         }
 
-        public void Remove(T entity)
+        public void Remove(TEntity entity)
         {
             DbSet.Remove(entity);
+        }
+    }
+
+    public class Repository<TEntity> : Repository<TEntity, Guid>, IRepository<TEntity>
+        where TEntity : class, IEntity<Guid>
+    {
+        public Repository(DbContext dbContext) : base(dbContext)
+        {
+
+        }
+    }
+
+    public class ClassicRepository<TEntity> : Repository<TEntity, int>, IClassicRepository<TEntity>
+        where TEntity : class, IEntity<int>
+    {
+        public ClassicRepository(DbContext dbContext) : base(dbContext)
+        {
+
         }
     }
 }
