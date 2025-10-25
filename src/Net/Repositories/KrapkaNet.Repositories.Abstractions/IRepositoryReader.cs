@@ -1,4 +1,5 @@
 ﻿using KrapkaNet.Data.Abstractions;
+
 using System;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +8,8 @@ using System.Threading.Tasks;
 namespace KrapkaNet.Repositories.Abstractions
 {
     public interface IRepositoryReader<TEntity, in TKey> : IRepository
-        where TEntity : class, IEntity<TKey> where TKey : struct
+        where TEntity : class, IEntity<TKey>
+        where TKey : struct
     {
         /// <summary>
         /// Find an entity by its id
@@ -38,8 +40,8 @@ namespace KrapkaNet.Repositories.Abstractions
         IQueryable<TEntity> GetBy(Expression<Func<TEntity, bool>> filter);
     }
 
-    public interface IRepositoryReader<T> : IRepositoryReader<T, Guid>
-    where T : class, IEntity<Guid>, IEntity<int>
+    public interface IRepositoryReader<TEntity> : IRepositoryReader<TEntity, Guid>
+    where TEntity : class, IEntity<Guid>
     {
     }
 

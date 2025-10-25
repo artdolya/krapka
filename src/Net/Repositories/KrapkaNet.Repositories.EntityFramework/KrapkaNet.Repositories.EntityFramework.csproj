@@ -13,9 +13,6 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\KrapkaNet.Repositories.Abstractions\KrapkaNet.Repositories.Abstractions.csproj" />
+    <PackageReference Include="KrapkaNet.Repositories.Abstractions" />
   </ItemGroup>
 </Project>
