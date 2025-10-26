@@ -45,8 +45,8 @@ namespace KrapkaNet.Repositories.Abstractions
     {
     }
 
-    public interface IClassicRepositoryReader<T> : IRepositoryReader<T, int>
-    where T : class, IEntity<int>
+    public interface IClassicRepositoryReader<TEntity> : IRepositoryReader<TEntity, int>
+    where TEntity : class, IEntity<int>
     {
     }
 }

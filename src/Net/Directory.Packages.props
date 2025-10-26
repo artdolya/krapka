@@ -1,6 +1,8 @@
 <Project>
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <!-- shared version for your Krapka packages -->
+    <KrapkaNetPackagesVersion>0.0.33</KrapkaNetPackagesVersion>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.1'">
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="2.2.6" />
@@ -89,9 +91,9 @@
     <PackageVersion Include="coverlet.collector" Version="6.0.4" />
     <PackageVersion Include="FakeItEasy" Version="8.3.0" />
     <PackageVersion Include="FluentAssertions" Version="8.8.0" />
-    <PackageVersion Include="KrapkaNet.Data.Abstractions" Version="0.0.32" />
-    <PackageVersion Include="KrapkaNet.EntityFramework.Abstractions" Version="0.0.32" />
-    <PackageVersion Include="KrapkaNet.Repositories.Abstractions" Version="0.0.32" />
+    <PackageVersion Include="KrapkaNet.Data.Abstractions" Version="$(KrapkaNetPackagesVersion)" />
+    <PackageVersion Include="KrapkaNet.EntityFramework.Abstractions" Version="$(KrapkaNetPackagesVersion)" />
+    <PackageVersion Include="KrapkaNet.Repositories.Abstractions" Version="$(KrapkaNetPackagesVersion)" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
     <PackageVersion Include="Serilog" Version="4.3.0" />
     <PackageVersion Include="Serilog.Enrichers.Environment" Version="3.0.1" />

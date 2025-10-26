@@ -1,4 +1,5 @@
 ﻿using KrapkaNet.Data.Abstractions;
+using System;
 
 namespace KrapkaNet.Repositories.Abstractions
 {
@@ -16,5 +17,14 @@ namespace KrapkaNet.Repositories.Abstractions
         /// </summary>
         /// <param name="entity"></param>
         void Remove(TEntity entity);
+    }
+    public interface IRepositoryRemover<TEntity> : IRepositoryRemover<TEntity, Guid>
+        where TEntity : class, IEntity<Guid>
+    {
+    }
+
+    public interface IClassicRepositoryRemover<TEntity> : IRepositoryRemover<TEntity, int>
+        where TEntity : class, IEntity<int>
+    {
     }
 }

@@ -18,12 +18,12 @@ namespace KrapkaNet.Repositories.Abstractions
 
     }
 
-    public interface IRepository<TEntity> : IRepository<TEntity, Guid>
+    public interface IRepository<TEntity> : IRepository, IRepositoryReader<TEntity>, IRepositoryWriter<TEntity>, IRepositoryRemover<TEntity>
        where TEntity : class, IEntity<Guid>
     {
     }
 
-    public interface IClassicRepository<TEntity> : IRepository<TEntity, int>
+    public interface IClassicRepository<TEntity> : IRepository, IRepositoryReader<TEntity, int>, IRepositoryWriter<TEntity>, IRepositoryRemover<TEntity, int>
        where TEntity : class, IEntity<int>
     {
     }
