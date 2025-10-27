@@ -7,44 +7,57 @@ using System.Threading.Tasks;
 
 namespace KrapkaNet.Repositories.Abstractions
 {
+    /// <summary>
+    /// Read-only repository operations for an entity with key <typeparamref name="TKey"/>.
+    /// </summary>
+    /// <typeparam name="TEntity">Entity type.</typeparam>
+    /// <typeparam name="TKey">Entity key type (struct).</typeparam>
     public interface IRepositoryReader<TEntity, in TKey> : IRepository
         where TEntity : class, IEntity<TKey>
         where TKey : struct
     {
         /// <summary>
-        /// Find an entity by its id
+        /// Find an entity by its id; may use direct find (no includes).
         /// </summary>
-        /// <param name="id">Primary Key</param>
-        /// <returns>Entity</returns>
+        /// <param name="id">Primary key value.</param>
+        /// <returns>The entity instance if found; otherwise null.</returns>
         TEntity FindBy(TKey id);
 
         /// <summary>
-        /// Find an entity by its id. If not found, return null
+        /// Get an entity by its id with the repository's default query behavior (may include navigations).
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Entity or Null</returns>
+        /// <param name="id">Primary key value.</param>
+        /// <returns>The entity instance if found; otherwise null.</returns>
         TEntity GetBy(TKey id);
 
         /// <summary>
-        /// Find an entity by its id. If not found, return null
+        /// Asynchronously get an entity by its id with the repository's default query behavior (may include navigations).
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns>Entity or Null</returns>
+        /// <param name="id">Primary key value.</param>
+        /// <returns>A task that returns the entity instance if found; otherwise null.</returns>
         Task<TEntity> GetByAsync(TKey id);
 
         /// <summary>
-        /// Find entities by a filter
+        /// Query entities that match the provided filter.
         /// </summary>
-        /// <param name="filter">Filter expression</param>
-        /// <returns>IQueryable collection of Entities.</returns>
+        /// <param name="filter">LINQ expression used to filter entities.</param>
+        /// <returns>An <see cref="IQueryable{T}"/> that can be further composed or materialized.</returns>
         IQueryable<TEntity> GetBy(Expression<Func<TEntity, bool>> filter);
     }
 
+    /// <summary>
+    /// Reader convenience interface for entities keyed by <see cref="Guid"/>.
+    /// </summary>
+    /// <typeparam name="TEntity">Entity type (must implement <see cref="IEntity{Guid}"/>).</typeparam>
     public interface IRepositoryReader<TEntity> : IRepositoryReader<TEntity, Guid>
     where TEntity : class, IEntity<Guid>
     {
     }
 
+    /// <summary>
+    /// Reader convenience interface for classic int-keyed entities.
+    /// </summary>
+    /// <typeparam name="TEntity">Entity type (must implement <see cref="IEntity{int}"/>).</typeparam>
     public interface IClassicRepositoryReader<TEntity> : IRepositoryReader<TEntity, int>
     where TEntity : class, IEntity<int>
     {
