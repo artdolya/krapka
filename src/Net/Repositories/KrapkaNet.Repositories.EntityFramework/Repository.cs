@@ -20,39 +20,39 @@ namespace KrapkaNet.Repositories.EntityFramework
         private readonly DbContext _context;
         protected DbSet<TEntity> DbSet => _context.Set<TEntity>();
 
-        public TEntity FindBy(TKey id)
+        public virtual TEntity FindBy(TKey id)
         {
             return DbSet.Find(id);
         }
 
-        public TEntity GetBy(TKey id)
+        public virtual TEntity GetBy(TKey id)
         {
             return DbSet.FirstOrDefault(x => x.Id.Equals(id));
         }
 
-        public async Task<TEntity> GetByAsync(TKey id)
+        public virtual async Task<TEntity> GetByAsync(TKey id)
         {
-            return await DbSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
+            return await BuildQueryWithIncludes().FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
-        public IQueryable<TEntity> GetBy(Expression<Func<TEntity, bool>> filter)
+        public virtual IQueryable<TEntity> GetBy(Expression<Func<TEntity, bool>> filter)
         {
-            return DbSet.Where(filter);
+            return BuildQueryWithIncludes().Where(filter);
         }
 
-        public bool Save()
+        public virtual bool Save()
         {
             _context.SaveChanges();
             return true;
         }
 
-        public async Task<bool> SaveAsync()
+        public virtual async Task<bool> SaveAsync()
         {
             await _context.SaveChangesAsync();
             return true;
         }
 
-        public TEntity AddOrUpdate(TEntity entity)
+        public virtual TEntity AddOrUpdate(TEntity entity)
         {
             if (entity.Id.Equals(default(TKey)))
                 DbSet.Add(entity);
@@ -61,13 +61,13 @@ namespace KrapkaNet.Repositories.EntityFramework
             return entity;
         }
 
-        public async Task<TEntity> AddAsync(TEntity entity)
+        public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
             await DbSet.AddAsync(entity);
             return entity;
         }
 
-        public void Remove(TKey id)
+        public virtual void Remove(TKey id)
         {
             var entity = DbSet.Find(id);
             if (entity != null)
@@ -76,9 +76,27 @@ namespace KrapkaNet.Repositories.EntityFramework
             }
         }
 
-        public void Remove(TEntity entity)
+        public virtual void Remove(TEntity entity)
         {
             DbSet.Remove(entity);
+        }
+
+        protected IQueryable<TEntity> BuildQueryWithIncludes()
+        {
+            IQueryable<TEntity> query = DbSet.AsQueryable();
+
+            var entityType = _context.Model.FindEntityType(typeof(TEntity));
+            if (entityType == null)
+                return query;
+
+            // Include all navigations discovered in the EF model
+            foreach (var navigation in entityType.GetNavigations())
+            {
+                // Use string-based Include to keep code simple and compatible across EF Core versions
+                query = query.Include(navigation.Name);
+            }
+
+            return query;
         }
     }
 

@@ -23,7 +23,7 @@ namespace KrapkaNet.Repositories.Abstractions
     {
     }
 
-    public interface IClassicRepository<TEntity> : IRepository, IRepositoryReader<TEntity, int>, IRepositoryWriter<TEntity>, IRepositoryRemover<TEntity, int>
+    public interface IClassicRepository<TEntity> : IRepository, IClassicRepositoryReader<TEntity>, IRepositoryWriter<TEntity>, IClassicRepositoryRemover<TEntity>
        where TEntity : class, IEntity<int>
     {
     }

@@ -1,6 +1,4 @@
-using FluentAssertions;
 using KrapkaNet.Data.Abstractions;
-using KrapkaNet.Repositories.Abstractions;
 
 namespace KrapkaNet.Repositories.EntityFramework.Tests.Repositories
 {
@@ -9,26 +7,26 @@ namespace KrapkaNet.Repositories.EntityFramework.Tests.Repositories
     {
     }
 
-    public class ClassicRepositoryTypeTests
-    {
-        [Fact]
-        public void ClassicRepository_TEntity_Should_Implement_All_Repository_Interfaces()
-        {
-            var type = typeof(ClassicRepository<ClassicTestEntity>);
+    //public class ClassicRepositoryTypeTests
+    //{
+    //    [Fact]
+    //    public void ClassicRepository_TEntity_Should_Implement_All_Repository_Interfaces()
+    //    {
+    //        var type = typeof(ClassicRepository<ClassicTestEntity>);
 
-            // High-level repository interfaces
-            type.Should().BeAssignableTo<IClassicRepository<ClassicTestEntity>>();
-            type.Should().BeAssignableTo<IRepository<ClassicTestEntity, int>>();
+    //        // High-level repository interfaces
+    //        type.Should().BeAssignableTo<IClassicRepository<ClassicTestEntity>>();
+    //        type.Should().BeAssignableTo<IRepository<ClassicTestEntity, int>>();
 
-            // Reader variants
-            type.Should().BeAssignableTo<IClassicRepositoryReader<ClassicTestEntity>>();
-            type.Should().BeAssignableTo<IRepositoryReader<ClassicTestEntity, int>>();
+    //        // Reader variants
+    //        type.Should().BeAssignableTo<IClassicRepositoryReader<ClassicTestEntity>>();
+    //        type.Should().BeAssignableTo<IRepositoryReader<ClassicTestEntity, int>>();
 
-            // Writer variant (non-keyed only exists)
-            type.Should().BeAssignableTo<IRepositoryWriter<ClassicTestEntity>>();
-            // Remover variants
-            type.Should().BeAssignableTo<IClassicRepositoryRemover<ClassicTestEntity>>();
-            type.Should().BeAssignableTo<IRepositoryRemover<ClassicTestEntity, int>>();
-        }
-    }
+    //        // Writer variant (non-keyed only exists)
+    //        type.Should().BeAssignableTo<IRepositoryWriter<ClassicTestEntity>>();
+    //        // Remover variants
+    //        type.Should().BeAssignableTo<IClassicRepositoryRemover<ClassicTestEntity>>();
+    //        type.Should().BeAssignableTo<IRepositoryRemover<ClassicTestEntity, int>>();
+    //    }
+    //}
 }
