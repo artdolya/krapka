@@ -17,21 +17,28 @@ namespace KrapkaNet.Repositories.Abstractions
         where TKey : struct
     {
         /// <summary>
-        /// Find an entity by its id; may use direct find (no includes).
+        /// Find an entity by its id without using includes.
         /// </summary>
         /// <param name="id">Primary key value.</param>
         /// <returns>The entity instance if found; otherwise null.</returns>
         TEntity FindBy(TKey id);
 
         /// <summary>
-        /// Get an entity by its id with the repository's default query behavior (may include navigations).
+        /// Asynchronously find an entity by its id without using includes.
+        /// </summary>
+        /// <param name="id">Primary key value.</param>
+        /// <returns>A task that returns the entity instance if found; otherwise null.</returns>
+        Task<TEntity> FindByAsync(TKey id);
+
+        /// <summary>
+        /// Get an entity by its id using includes by default.
         /// </summary>
         /// <param name="id">Primary key value.</param>
         /// <returns>The entity instance if found; otherwise null.</returns>
         TEntity GetBy(TKey id);
 
         /// <summary>
-        /// Asynchronously get an entity by its id with the repository's default query behavior (may include navigations).
+        /// Asynchronously get an entity by its id using includes by default.
         /// </summary>
         /// <param name="id">Primary key value.</param>
         /// <returns>A task that returns the entity instance if found; otherwise null.</returns>

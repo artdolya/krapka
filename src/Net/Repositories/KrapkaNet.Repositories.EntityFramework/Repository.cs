@@ -2,6 +2,7 @@
 using KrapkaNet.Repositories.Abstractions;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
@@ -22,7 +23,12 @@ namespace KrapkaNet.Repositories.EntityFramework
 
         public virtual TEntity FindBy(TKey id)
         {
-            return DbSet.Find(id);
+            return DbSet.AsNoTracking().FirstOrDefault(x => x.Id.Equals(id));
+        }
+
+        public virtual async Task<TEntity> FindByAsync(TKey id)
+        {
+            return await DbSet.AsNoTracking().FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
         public virtual TEntity GetBy(TKey id)
@@ -32,7 +38,7 @@ namespace KrapkaNet.Repositories.EntityFramework
 
         public virtual async Task<TEntity> GetByAsync(TKey id)
         {
-            return await BuildQueryWithIncludes().FirstOrDefaultAsync(x => x.Id.Equals(id));
+            return await DbSet.FirstOrDefaultAsync(x => x.Id.Equals(id));
         }
 
         public virtual IQueryable<TEntity> GetBy(Expression<Func<TEntity, bool>> filter)
@@ -89,14 +95,30 @@ namespace KrapkaNet.Repositories.EntityFramework
             if (entityType == null)
                 return query;
 
-            // Include all navigations discovered in the EF model
-            foreach (var navigation in entityType.GetNavigations())
+            var includePaths = GetAllIncludePaths(entityType, "", new HashSet<Type>());
+            foreach (var path in includePaths)
             {
-                // Use string-based Include to keep code simple and compatible across EF Core versions
-                query = query.Include(navigation.Name);
+                query = query.Include(path);
             }
 
             return query;
+        }
+
+        private List<string> GetAllIncludePaths(Microsoft.EntityFrameworkCore.Metadata.IEntityType entityType, string currentPath, HashSet<Type> visited)
+        {
+            var paths = new List<string>();
+            if (visited.Contains(entityType.ClrType)) return paths;
+            visited.Add(entityType.ClrType);
+            foreach (var navigation in entityType.GetNavigations())
+            {
+                var path = string.IsNullOrEmpty(currentPath) ? navigation.Name : $"{currentPath}.{navigation.Name}";
+                paths.Add(path);
+                var targetEntityType = navigation.TargetEntityType;
+                var subPaths = GetAllIncludePaths(targetEntityType, path, visited);
+                paths.AddRange(subPaths);
+            }
+            visited.Remove(entityType.ClrType);
+            return paths;
         }
     }
 
